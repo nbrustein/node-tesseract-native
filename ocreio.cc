@@ -84,7 +84,7 @@ void OcrEio::Ocr(const FunctionCallbackInfo<Value>& args)
   
   if (!args[0]->ToObject()->GetConstructorName()->Equals(String::NewFromUtf8(isolate, "Buffer", String::kInternalizedString)))
   {
-    isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Argument 1 must be an object of type Buffer", String::kInternalizedString)));
+    isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Argument 1 must be an object of type Buffer, was "+args[0]->ToObject()->GetConstructorName(), String::kInternalizedString)));
     scope.Escape(result);
     return;
   }
